@@ -97,6 +97,7 @@ defmodule TeacherWeb do
 
       import TeacherWeb.ErrorHelpers
       import TeacherWeb.Gettext
+      import TeacherWeb.Helpers.Auth, only: [signed_in?: 1]
       alias TeacherWeb.Router.Helpers, as: Routes
     end
   end

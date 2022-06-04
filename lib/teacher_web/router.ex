@@ -30,15 +30,16 @@ defmodule TeacherWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/receipt", PurchaseController, :receipt
+    get "/sign-in", SessionController, :new
+    post "/sign-in", SessionController, :create
+    get "/sign-out", SessionController, :delete
 
     resources "/posts", PostController do
       resources "/comments", CommentController, only: [:create]
     end
 
     resources "/purchases", PurchaseController, only: [:create]
-
-    get "/receipt", PurchaseController, :receipt
-
     resources "/registrations", UserController, only: [:create, :new]
   end
 
